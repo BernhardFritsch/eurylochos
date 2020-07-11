@@ -40,17 +40,17 @@ namespace eurylochos
             {
                 Input = System.IO.File.ReadAllLines(FilePath);
             } 
-            catch (UnauthorizedAccessException e)
+            catch (UnauthorizedAccessException)
             {
-                System.Console.WriteLine("Failed to Access File at " + FilePath + " missing Authorization");
+                System.Console.WriteLine("Failed to Access File at " + FilePath + " missing Authorization, try to run as Administrator");
                 return;
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 System.Console.WriteLine("Invalid FilePath, Path contains invalid characters or only white space");
                 return;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 System.Console.WriteLine("Unknown error occured while opending the File at " + FilePath);
                 return;
