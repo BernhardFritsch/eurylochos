@@ -1,0 +1,11 @@
+H:\Coding\visualc#\eurylochos\eurylochos\bin\Release\netcoreapp3.1\eurylochos.exe
+H:\Coding\visualc#\eurylochos\eurylochos\bin\Release\netcoreapp3.1\eurylochos.deps.json
+H:\Coding\visualc#\eurylochos\eurylochos\bin\Release\netcoreapp3.1\eurylochos.runtimeconfig.json
+H:\Coding\visualc#\eurylochos\eurylochos\bin\Release\netcoreapp3.1\eurylochos.runtimeconfig.dev.json
+H:\Coding\visualc#\eurylochos\eurylochos\bin\Release\netcoreapp3.1\eurylochos.dll
+H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.AssemblyInfoInputs.cache
+H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.AssemblyInfo.cs
+H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.csproj.CoreCompileInputs.cache
+H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.dll
+H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.genruntimeconfig.cache
+H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.csprojAssemblyReference.cache

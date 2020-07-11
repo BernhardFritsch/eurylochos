@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZMBoqXzT6c3Ne1IZ9sV+MwqW7+VM6Lj+h7kwl3CNP5OihFgWAyO62Gh/YkQNT3yIE86L1K2eP5LFhkdDuVG/Mw==",
+  "success": true,
+  "projectFilePath": "H:\\Coding\\visualc#\\eurylochos\\eurylochos\\eurylochos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bernhard\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\3.1.5\\microsoft.netcore.app.runtime.win-x86.3.1.5.nupkg.sha512",
+    "C:\\Users\\Bernhard\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\3.1.5\\microsoft.windowsdesktop.app.runtime.win-x86.3.1.5.nupkg.sha512",
+    "C:\\Users\\Bernhard\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\3.1.5\\microsoft.aspnetcore.app.runtime.win-x86.3.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}
