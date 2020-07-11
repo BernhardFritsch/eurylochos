@@ -8,4 +8,3 @@ H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.As
 H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.csproj.CoreCompileInputs.cache
 H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.dll
 H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.genruntimeconfig.cache
-H:\Coding\visualc#\eurylochos\eurylochos\obj\Release\netcoreapp3.1\eurylochos.csprojAssemblyReference.cache
