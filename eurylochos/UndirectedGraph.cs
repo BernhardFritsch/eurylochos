@@ -419,9 +419,9 @@ namespace eurylochos
         /// </summary>
         /// <param name="Path"></param>
         /// <returns>The Length/Costs of the Path as int, return 0 if the path consists of only 1 vertex</returns>
-        public int GetPathLength(int[] Path)
+        public long GetPathLength(int[] Path)
         {
-            int PathLength = 0;
+            long PathLength = 0;
             if (Path[0] == -1)
             {
                 return int.MaxValue;

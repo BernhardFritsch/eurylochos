@@ -188,13 +188,14 @@ namespace eurylochos
 
                 System.Console.WriteLine("With Length: ");
                 char[] PathLengthPrint = Graph.GetPathLength(ShortestPath).ToString().ToCharArray();
-                for (int i = (PathLengthPrint.Length - 1); i >= 0; i--)
+                for (int i = 0; i < PathLengthPrint.Length; i++)
                 {
-                    System.Console.Write(PathLengthPrint[i]);
-                    if ((i % 3) == 0 && i > 0)
+                    
+                    if (((PathLengthPrint.Length - i) % 3) == 0 && i > 0)
                     {
                         System.Console.Write(".");
                     }
+                    System.Console.Write(PathLengthPrint[i]);
                 }
                 System.Console.Write(" meters");
                 System.Console.WriteLine();
