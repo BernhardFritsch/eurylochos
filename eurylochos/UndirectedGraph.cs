@@ -278,19 +278,6 @@ namespace eurylochos
                         }
                         else
                         {
-                            //DEBUG
-
-                            //System.Console.WriteLine(Depth);
-
-                            System.Console.WriteLine(Calculated);
-                            System.Console.WriteLine(Discarded);
-                            System.Console.WriteLine((Calculated + Discarded));
-                            System.Console.WriteLine(Possibilities);
-                            System.Console.WriteLine();
-
-                            //DEBUGEND
-
-
                             //Go one step deeper
                             Depth++;
                             //Add all Vertexes that are unvisited by the CurrentCircle to the queue for the next level
