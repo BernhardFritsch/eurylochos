@@ -19,6 +19,6 @@ Path may be discarded before reaching the state of being a circle if they are al
 vertexes in the graph and are allready longer than the half of the shortest circle found.
 
 Note:
-For the provided example data in eurylochos/publis/msg_standorte_deutschland.csv with 21 vertexes the programm needed about 30 mins to complete the search on my computer.
+For the provided example data in eurylochos/publish/msg_standorte_deutschland.csv with 21 vertexes the programm needed about 30 mins to complete the search on my computer.
 This time will grow faster than exponentially if more vertexes are added.
 The complexity for the worst-case remains O(n!).
