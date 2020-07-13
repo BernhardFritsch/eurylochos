@@ -123,7 +123,7 @@ namespace eurylochos
             
             System.Console.WriteLine(Length);
 
-            int[,] AdjacencyMatrix = new int[Length, Length];
+            int[,] WeightedAdjacencyMatrix = new int[Length, Length];
             string[] Aliases = new string[Length];
             Vertex[] VertexesArray = Vertexes.ToArray();
 
@@ -138,7 +138,7 @@ namespace eurylochos
             for (int i = 0; i < Length; i++)
             {
                 Aliases[i] = VertexesArray[i].Standort;
-                AdjacencyMatrix[i, i] = 0;
+                WeightedAdjacencyMatrix[i, i] = 0;
                 LatStart = double.Parse(VertexesArray[i].Breitengrad, System.Globalization.CultureInfo.InvariantCulture) * Math.PI / 180.0;
                 LonStart = double.Parse(VertexesArray[i].Laengengrad, System.Globalization.CultureInfo.InvariantCulture) * Math.PI / 180.0;
                 for (int j = 0; j < Length; j++)
@@ -158,8 +158,8 @@ namespace eurylochos
                             throw new ArithmeticException("some calculation for the distances based on the GPS-Koordinates went wrong, and it was most likely tried to calculate the Square Route of a negative Value, the calculation does only support Real Numbers not complex numbers");
                         }
 
-                        AdjacencyMatrix[i, j] = (int)distance;
-                        AdjacencyMatrix[j, i] = AdjacencyMatrix[i, j];
+                        WeightedAdjacencyMatrix[i, j] = (int)distance;
+                        WeightedAdjacencyMatrix[j, i] = WeightedAdjacencyMatrix[i, j];
                     }
                 }
             }
@@ -168,7 +168,7 @@ namespace eurylochos
             //System.Console.WriteLine(StartTime);
             //System.Console.ReadLine();
 
-            UndirectedGraph Graph = new UndirectedGraph(AdjacencyMatrix, Aliases);
+            UndirectedGraph Graph = new UndirectedGraph(WeightedAdjacencyMatrix, Aliases);
             int[] ShortestPath = Graph.GetShortestHamiltonianCircle(true);
             if (ShortestPath != null)
             {

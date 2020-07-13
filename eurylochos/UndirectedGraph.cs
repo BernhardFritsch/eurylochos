@@ -5,7 +5,7 @@ namespace eurylochos
 {
     class UndirectedGraph
     {
-        int[,] AdjMatrix;
+        int[,] WeightedAdjacencyMatrix;
         string[] VertexAliases;
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace eurylochos
                 throw new ArgumentException("Adjacency Matrix for a undirected Graph must be symetric to the main diagonal");
             }
 
-            this.AdjMatrix = new int[InitMatrix.GetLength(0), InitMatrix.GetLength(1)];
+            this.WeightedAdjacencyMatrix = new int[InitMatrix.GetLength(0), InitMatrix.GetLength(1)];
             for (int i = 0; i < InitMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < InitMatrix.GetLength(1); j++)
                 {
-                    this.AdjMatrix[i, j] = InitMatrix[i, j];
+                    this.WeightedAdjacencyMatrix[i, j] = InitMatrix[i, j];
                 }
             }
 
@@ -68,12 +68,12 @@ namespace eurylochos
                 throw new ArgumentException("Matrix must be square");
             }
 
-            this.AdjMatrix = new int[InitMatrix.GetLength(0), InitMatrix.GetLength(1)];
+            this.WeightedAdjacencyMatrix = new int[InitMatrix.GetLength(0), InitMatrix.GetLength(1)];
             for (int i = 0; i < InitMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < InitMatrix.GetLength(1); j++)
                 {
-                    this.AdjMatrix[i, j] = InitMatrix[i, j];
+                    this.WeightedAdjacencyMatrix[i, j] = InitMatrix[i, j];
                 }
             }
 
@@ -123,7 +123,7 @@ namespace eurylochos
 
 
             // Variable deklaration
-            int Length = this.AdjMatrix.GetLength(0); // The Length of the Graph, The number of Vertexes in the Graph
+            int Length = this.WeightedAdjacencyMatrix.GetLength(0); // The Length of the Graph, The number of Vertexes in the Graph
             int Depth = 1; // The Level on which the depth first search currently operates
             int[] ShortestCircle = new int[Length + 1]; // saves the shortest hamiltonian circle that could be found so far
             long ShortestCircleLength = long.MaxValue; // saves the length of the shortest found hamiltonian circle to prevent constant calculation of that length
@@ -175,10 +175,10 @@ namespace eurylochos
                 for (int j = 1; j < Length; j++)
                 {
 
-                    if (MinLength > this.AdjMatrix[CurrentCircle[Depth - 1], j] && !Sorted[j])
+                    if (MinLength > this.WeightedAdjacencyMatrix[CurrentCircle[Depth - 1], j] && !Sorted[j])
                     {
                         MinVertex = j;
-                        MinLength = this.AdjMatrix[CurrentCircle[Depth - 1], j];
+                        MinLength = this.WeightedAdjacencyMatrix[CurrentCircle[Depth - 1], j];
                     }
                 }
                 if (MinVertex == -1)
@@ -229,10 +229,10 @@ namespace eurylochos
                     IteratorCount++;
 
                     //Add start vertex as last vertex to complete circle, if there is a edge between them two
-                    if (AdjMatrix[CurrentCircle[Length - 1], CurrentCircle[0]] != 0)
+                    if (WeightedAdjacencyMatrix[CurrentCircle[Length - 1], CurrentCircle[0]] != 0)
                     {
                         CurrentCircle[Length] = CurrentCircle[0];
-                        CurrentCircleLength += this.AdjMatrix[CurrentCircle[Length - 1], CurrentCircle[Length]];
+                        CurrentCircleLength += this.WeightedAdjacencyMatrix[CurrentCircle[Length - 1], CurrentCircle[Length]];
 
                         //Save Current Circle as Shortest Circle if it is shorter than the shortest one found so far
                         if (CurrentCircleLength < ShortestCircleLength)
@@ -242,13 +242,13 @@ namespace eurylochos
                         }
 
                         //remove last vertex again
-                        CurrentCircleLength -= this.AdjMatrix[CurrentCircle[Length - 1], CurrentCircle[Length]];
+                        CurrentCircleLength -= this.WeightedAdjacencyMatrix[CurrentCircle[Length - 1], CurrentCircle[Length]];
                         CurrentCircle[Length] = -1;
                     }
 
                     //remove last vertex from CurrentPath so that the next possibility will be calculated
                     Depth--;
-                    CurrentCircleLength -= this.AdjMatrix[CurrentCircle[Depth], CurrentCircle[Depth - 1]];
+                    CurrentCircleLength -= this.WeightedAdjacencyMatrix[CurrentCircle[Depth], CurrentCircle[Depth - 1]];
                     Visited[CurrentCircle[Depth]] = false;
                     CurrentCircle[Depth] = -1;
                 }
@@ -259,14 +259,14 @@ namespace eurylochos
                         //Add next possible Vertex to the CurrentCircle
                         CurrentCircle[Depth] = NextVertex;
                         Visited[CurrentCircle[Depth]] = true;
-                        CurrentCircleLength += this.AdjMatrix[CurrentCircle[Depth - 1], CurrentCircle[Depth]];
+                        CurrentCircleLength += this.WeightedAdjacencyMatrix[CurrentCircle[Depth - 1], CurrentCircle[Depth]];
 
                         //If Path is allready Longer than the shortest found circle, or it has visited less than half of the vertexes and is allready longer than the half
                         //of the shortest found circle it is discarded
                         if ((CurrentCircleLength > ShortestCircleLength) || (Depth < (Length / 2) && CurrentCircleLength > (ShortestCircleLength / 2)))
                         {
                             Visited[CurrentCircle[Depth]] = false;
-                            CurrentCircleLength -= this.AdjMatrix[CurrentCircle[Depth - 1], CurrentCircle[Depth]];
+                            CurrentCircleLength -= this.WeightedAdjacencyMatrix[CurrentCircle[Depth - 1], CurrentCircle[Depth]];
                             CurrentCircle[Depth] = -1;
                             long DiscardedSub = 1;
                             for (int i = 1; i < (Length - Depth); i++)
@@ -288,9 +288,9 @@ namespace eurylochos
                             {
                                 for (int j = 1; j < Length; j++)
                                 {
-                                    if (MinLength > this.AdjMatrix[CurrentCircle[Depth - 1], j] && !Sorted[j])
+                                    if (MinLength > this.WeightedAdjacencyMatrix[CurrentCircle[Depth - 1], j] && !Sorted[j])
                                     {
-                                        MinLength = this.AdjMatrix[CurrentCircle[Depth - 1], j];
+                                        MinLength = this.WeightedAdjacencyMatrix[CurrentCircle[Depth - 1], j];
                                         MinVertex = j;
                                     }
                                 }
@@ -310,7 +310,7 @@ namespace eurylochos
                         Depth--;
                         if (Depth > 0)
                         {
-                            CurrentCircleLength -= this.AdjMatrix[CurrentCircle[Depth], CurrentCircle[Depth - 1]];
+                            CurrentCircleLength -= this.WeightedAdjacencyMatrix[CurrentCircle[Depth], CurrentCircle[Depth - 1]];
                             Visited[CurrentCircle[Depth]] = false;
                             CurrentCircle[Depth] = -1;
                         }
@@ -436,7 +436,7 @@ namespace eurylochos
                 {
                     break;
                 }
-                PathLength = PathLength + this.AdjMatrix[Path[i - 1], Path[i]]; // Add the length of all edges in the Path to PathLength
+                PathLength = PathLength + this.WeightedAdjacencyMatrix[Path[i - 1], Path[i]]; // Add the length of all edges in the Path to PathLength
 
             }
             return PathLength;
